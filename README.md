@@ -5,7 +5,7 @@
 ## 🚀 Installation  
 You can install **Waddle** using **npm** :  
 
-```sh
+```
 npm install @ducklabs/waddle
 ```
 
