@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import path from "node:path";
 
 export default defineConfig({
 	base: "/Waddle/",
@@ -24,4 +25,10 @@ export default defineConfig({
 		force: true,
 	},
 	plugins: [react()],
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "/src"),
+			"@style": path.resolve(__dirname, "/src/lib/styles/global.scss"),
+		},
+	},
 });

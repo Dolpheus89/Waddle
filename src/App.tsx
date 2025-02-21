@@ -1,10 +1,11 @@
+import "./App.css"
 import { Button } from "./lib";
 
 function App() {
 	return (
-		<>
-			<Button>Test</Button>
-		</>
+		<main>
+			<Button>Button</Button>
+		</main>
 	);
 }
 

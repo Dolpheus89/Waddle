@@ -1,0 +1,9 @@
+// All mixins must be gathered in this file
+@use './variables' as *;
+
+@mixin theme($mode) {
+    $colors: map-get($themes, $mode);
+
+    background-color: map-get($colors, background);
+    color: map-get($colors, text);
+}

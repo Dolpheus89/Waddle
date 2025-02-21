@@ -18,7 +18,13 @@
 			"styles": "./dist/components/index.cjs.css"
 		}
 	},
-	"files": ["dist", "README.md", "LICENSE", "storybook-static", "stories"],
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE",
+		"storybook-static",
+		"stories"
+	],
 	"peerDependencies": {
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
@@ -37,7 +43,8 @@
 	"dependencies": {
 		"classnames": "^2.5.1",
 		"react": "^18.0.0",
-		"react-dom": "^18.0.0"
+		"react-dom": "^18.0.0",
+		"sass": "^1.85.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

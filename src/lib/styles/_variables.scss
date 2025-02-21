@@ -1,0 +1,139 @@
+@use "sass:color";
+@use "sass:map";
+
+// Fonts - Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// Colors palette
+$purple: (
+  600: hsl(270, 50%, 45%),
+  500: hsl(270, 50%, 55%),
+  400: hsl(270, 50%, 65%),
+  300: hsl(270, 50%, 75%),
+  200: hsl(270, 50%, 85%),
+  100: hsl(270, 50%, 95%)
+);
+
+$blue: (
+  600: hsl(218, 56%, 45%),
+  500: hsl(218, 56%, 55%),
+  400: hsl(218, 56%, 65%),
+  300: hsl(218, 56%, 75%),
+  200: hsl(218, 56%, 85%),
+  100: hsl(218, 56%, 95%)
+);
+
+$green: (
+  600: hsl(123, 43%, 45%),
+  500: hsl(123, 43%, 55%),
+  400: hsl(123, 43%, 65%),
+  300: hsl(123, 43%, 75%),
+  200: hsl(123, 43%, 85%),
+  100: hsl(123, 43%, 95%)
+);
+
+$orange: (
+  600: hsl(36, 100%, 45%),
+  500: hsl(36, 100%, 55%),
+  400: hsl(36, 100%, 65%),
+  300: hsl(36, 100%, 75%),
+  200: hsl(36, 100%, 85%),
+  100: hsl(36, 100%, 95%)
+);
+
+$red: (
+  600: hsl(349, 54%, 45%),
+  500: hsl(348, 54%, 55%),
+  400: hsl(349, 54%, 65%),
+  300: hsl(348, 54%, 75%),
+  200: hsl(349, 54%, 85%),
+  100: hsl(348, 54%, 95%)
+);
+
+$grey: (
+  600: hsl(228, 31%, 15%),
+  500: hsl(228, 31%, 25%),
+  400: hsl(228, 31%, 35%),
+  300: hsl(228, 31%, 45%),
+  200: hsl(228, 31%, 55%),
+  100: hsl(228, 31%, 65%)
+);
+
+$light : hsl(0, 0%, 94%);
+
+// Main theme colors
+
+// Main color
+$primary-light-theme: map.get($purple, 600);
+$primary-dark-theme: color.adjust($primary-light-theme, $lightness: 10%);
+
+// Secondary color
+$secondary-light-theme: map.get($blue, 600);
+$secondary-dark-theme: color.adjust($secondary-light-theme, $lightness: 10%);
+
+// Success color
+$success-light-theme: map.get($green, 600);
+$success-dark-theme: color.adjust($success-light-theme, $lightness: 10%);
+
+// Warning color
+$warning-light-theme: map.get($orange, 600);
+$warning-dark-theme: color.adjust($warning-light-theme, $lightness: 10%);
+
+// Error color
+$error-light-theme: map.get($red, 600);
+$error-dark-theme: color.adjust($error-light-theme, $lightness: 10%);
+
+// Background
+$background-dark-theme-default: map.get($grey, 600);
+$background-light-theme-default:$light;
+
+// Fonts
+$font: "Poppins", sans-serif;
+// -- colors
+$font-light: $light;
+$font-dark: map.get($grey, 600);
+// -- weights
+$extraBold: 800;
+$bold: 700;
+$semiBold: 600;
+$medium: 500;
+$regular: 400;
+$light: 300;
+$extraLight: 200;
+$thin: 100;
+// -- sizes
+$xxs: 0.5rem;
+$xs: 0.75rem;
+$s: 1rem;
+$m: 1.25rem;
+$l: 1.75rem;
+$xl: 2rem;
+$xxl: 2.5rem;
+$xxxl: 3rem;
+
+// Breakpoints
+$tablet: 1024px;
+$mobile: 800px;
+
+// Theme color
+
+$themes: (
+  light: (
+    background: $background-light-theme-default,
+    text: $font-dark,
+    primary:$primary-light-theme,
+    secondary:$secondary-light-theme,
+    success:$success-light-theme,
+    warning:$warning-light-theme,
+    error:$error-light-theme,
+  ),
+  dark: (
+    background: $background-dark-theme-default,
+    text: $font-light,
+    primary:$primary-dark-theme,
+    secondary:$secondary-dark-theme,
+    success:$success-dark-theme,
+    warning:$warning-dark-theme,
+    error:$error-dark-theme,
+  )
+);
