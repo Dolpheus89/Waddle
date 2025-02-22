@@ -1,5 +1,96 @@
 @use '@style' as *;
+@use "sass:color";
+@use "sass:map";
+
+$variants: (
+    "contained": (
+    "background": true,
+    "border": none,
+    ),
+    "outlined": (
+    "background": false,
+    "border": 1px solid,
+    ),
+    "text": (
+    "background": false,
+    "border": none,
+    )
+);
+
+$sizes: (
+    "sm": (
+    "font-size": $s,
+    "radius": 4px,
+    "padding": 0.5rem 1rem,
+    ),
+    "m": (
+    "font-size": $m,
+    "radius": 4px,
+    "padding": 0.5rem 1.5rem,
+    ),
+    "l": (
+    "font-size": $l,
+    "radius": 6px,
+    "padding": 0.5rem 2rem,
+    )
+);
+
+$colors: ("primary", "secondary", "success", "danger");
 
 .button {
-    background-color: $primary-light-theme;
+    cursor: pointer;
+    font-weight: $semiBold;
+    margin: 1rem;
+
+    &:active {
+        box-shadow: none;
+        transform: translateY(1px);
+    }
+
+    @each $size , $props in $sizes {
+        &.#{$size} {
+            padding: map.get($props, "padding");
+            font-size: map.get($props, "font-size");
+            line-height:1.5;
+            border-radius: map.get($props, "radius");
+        }
+    }
+
+    @each $variant, $variant-props in $variants {
+        &.#{$variant} {
+            border: map.get($variant-props, "border");
+    
+            @each $color in $colors {
+                &.#{$color} {
+                    @if map.get($variant-props, "background") {
+                        background-color: var(--waddle-#{$color});
+                        box-shadow: 0 2px 2px #00000040;
+                        color: $font-light;
+
+                        &:hover {
+                            filter: brightness(90%);
+                        }
+
+                    } @else {
+                        color: var(--waddle-#{$color});
+                        background-color: transparent;
+                    
+                        @if map.get($variant-props, "border") != none {
+                            border-color: var(--waddle-#{$color});
+                        }
+
+                        &:hover {
+                            background-color: color-mix(in hsl, var(--waddle-#{$color}) 20%, transparent);
+                            color: var(--waddle-text);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 }

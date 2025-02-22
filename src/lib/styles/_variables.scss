@@ -61,7 +61,6 @@ $grey: (
 
 $light : hsl(0, 0%, 94%);
 
-// Main theme colors
 
 // Main color
 $primary-light-theme: map.get($purple, 600);
@@ -79,9 +78,9 @@ $success-dark-theme: color.adjust($success-light-theme, $lightness: 10%);
 $warning-light-theme: map.get($orange, 600);
 $warning-dark-theme: color.adjust($warning-light-theme, $lightness: 10%);
 
-// Error color
-$error-light-theme: map.get($red, 600);
-$error-dark-theme: color.adjust($error-light-theme, $lightness: 10%);
+// danger color
+$danger-light-theme: map.get($red, 600);
+$danger-dark-theme: color.adjust($danger-light-theme, $lightness: 10%);
 
 // Background
 $background-dark-theme-default: map.get($grey, 600);
@@ -102,11 +101,9 @@ $light: 300;
 $extraLight: 200;
 $thin: 100;
 // -- sizes
-$xxs: 0.5rem;
-$xs: 0.75rem;
-$s: 1rem;
-$m: 1.25rem;
-$l: 1.75rem;
+$s: 0.875rem;
+$m: 1rem;
+$l: 1.25rem;
 $xl: 2rem;
 $xxl: 2.5rem;
 $xxxl: 3rem;
@@ -125,7 +122,7 @@ $themes: (
     secondary:$secondary-light-theme,
     success:$success-light-theme,
     warning:$warning-light-theme,
-    error:$error-light-theme,
+    danger:$danger-light-theme,
   ),
   dark: (
     background: $background-dark-theme-default,
@@ -134,6 +131,28 @@ $themes: (
     secondary:$secondary-dark-theme,
     success:$success-dark-theme,
     warning:$warning-dark-theme,
-    error:$error-dark-theme,
+    danger:$danger-dark-theme,
   )
 );
+
+// Exposed 
+:root {
+  --waddle-background: #{map.get($themes, light, background)};
+  --waddle-text: #{map.get($themes, light, text)};
+  --waddle-primary: #{map.get($themes, light, primary)};
+  --waddle-secondary: #{map.get($themes, light, secondary)};
+  --waddle-success: #{map.get($themes, light, success)};
+  --waddle-warning: #{map.get($themes, light, warning)};
+  --waddle-danger: #{map.get($themes, light, danger)};
+}
+
+// dark theme
+[data-theme="dark"] {
+  --waddle-background: #{map.get($themes, dark, background)};
+  --waddle-text: #{map.get($themes, dark, text)};
+  --waddle-primary: #{map.get($themes, dark, primary)};
+  --waddle-secondary: #{map.get($themes, dark, secondary)};
+  --waddle-success: #{map.get($themes, dark, success)};
+  --waddle-warning: #{map.get($themes, dark, warning)};
+  --waddle-danger: #{map.get($themes, dark, danger)};
+}
